@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9414CFD028714C310031C990 /* UpcommingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9414CFCF28714C310031C990 /* UpcommingViewController.swift */; };
+		9414CFD228714C670031C990 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9414CFD128714C670031C990 /* SearchViewController.swift */; };
+		9414CFD428714CC10031C990 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9414CFD328714CC10031C990 /* DownloadsViewController.swift */; };
 		94C325BD2871460100EAE0C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325BC2871460100EAE0C5 /* AppDelegate.swift */; };
 		94C325BF2871460100EAE0C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325BE2871460100EAE0C5 /* SceneDelegate.swift */; };
 		94C325C12871460100EAE0C5 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325C02871460100EAE0C5 /* MainTabBarViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9414CFCF28714C310031C990 /* UpcommingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingViewController.swift; sourceTree = "<group>"; };
+		9414CFD128714C670031C990 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9414CFD328714CC10031C990 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		94C325B92871460100EAE0C5 /* uikitNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uikitNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C325BC2871460100EAE0C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C325BE2871460100EAE0C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				94C325D328714A4500EAE0C5 /* HomeViewController.swift */,
+				9414CFCF28714C310031C990 /* UpcommingViewController.swift */,
+				9414CFD128714C670031C990 /* SearchViewController.swift */,
+				9414CFD328714CC10031C990 /* DownloadsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9414CFD228714C670031C990 /* SearchViewController.swift in Sources */,
 				94C325C12871460100EAE0C5 /* MainTabBarViewController.swift in Sources */,
+				9414CFD428714CC10031C990 /* DownloadsViewController.swift in Sources */,
 				94C325BD2871460100EAE0C5 /* AppDelegate.swift in Sources */,
+				9414CFD028714C310031C990 /* UpcommingViewController.swift in Sources */,
 				94C325BF2871460100EAE0C5 /* SceneDelegate.swift in Sources */,
 				94C325D428714A4500EAE0C5 /* HomeViewController.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  UpcommingViewController.swift
 //  uikitNetflix
 //
 //  Created by 김제필 on 7/3/22.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class UpcommingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .red
 
+        view.backgroundColor = .green
     }
+    
 
     /*
     // MARK: - Navigation
@@ -25,7 +25,5 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-
 
 }

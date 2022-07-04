@@ -17,6 +17,7 @@
 		94C325C62871460200EAE0C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C325C52871460200EAE0C5 /* Assets.xcassets */; };
 		94C325C92871460200EAE0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C325C72871460200EAE0C5 /* LaunchScreen.storyboard */; };
 		94C325D428714A4500EAE0C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325D328714A4500EAE0C5 /* HomeViewController.swift */; };
+		94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC4B95287183C1002D899E /* TopHeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		94C325C82871460200EAE0C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C325CA2871460200EAE0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C325D328714A4500EAE0C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		94CC4B95287183C1002D899E /* TopHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				9479F9E628716399004A2696 /* CollectionViewForTableViewCell.swift */,
+				94CC4B95287183C1002D899E /* TopHeaderUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9414CFD228714C670031C990 /* SearchViewController.swift in Sources */,
+				94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */,
 				94C325C12871460100EAE0C5 /* MainTabBarViewController.swift in Sources */,
 				9479F9E728716399004A2696 /* CollectionViewForTableViewCell.swift in Sources */,
 				9414CFD428714CC10031C990 /* DownloadsViewController.swift in Sources */,

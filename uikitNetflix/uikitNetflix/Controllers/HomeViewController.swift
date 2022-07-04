@@ -23,6 +23,10 @@ class HomeViewController: UIViewController {
 
         homeFeatureTable.delegate = self
         homeFeatureTable.dataSource = self
+
+//        homeFeatureTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 400))
+        let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        homeFeatureTable.tableHeaderView = headerView
     }
 
     override func viewDidLayoutSubviews() {
@@ -40,9 +44,7 @@ class HomeViewController: UIViewController {
     }
     */
 
-
 }
-
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -65,11 +67,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }

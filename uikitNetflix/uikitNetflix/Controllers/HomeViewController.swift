@@ -9,6 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    let titlesForEachSection: [String] = [
+        "Trending Movies",
+        "Popular",
+        "Trending TV",
+        "Top Rated",
+        "Upcoming Movies"
+    ]
+
     private let homeFeatureTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
 
@@ -63,7 +71,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
+        return titlesForEachSection.count
     }
 
     func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +98,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 40
     }
 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
+        header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.lowercased()
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return titlesForEachSection[section]
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset

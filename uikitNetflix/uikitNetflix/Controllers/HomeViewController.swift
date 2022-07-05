@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
 //        APICaller.shared.getTrendingMoviesList { _ in
 //
 //        }
+
 //        APICaller.shared.getTrendingMoviesList { results in
 //            switch results {
 //            case .success(let movies):
@@ -70,21 +71,24 @@ class HomeViewController: UIViewController {
 //                print(error)
 //            }
 //        }
+//
+//        APICaller.shared.getTrendingTVList { _ in
+//        }
+//
+//        APICaller.shared.getUpcomingMovies { _ in
+//
+//        }
 
-        APICaller.shared.getTrendingTVList { results in
-        }
+//        APICaller.shared.getPopularList { _ in
+//
+//        }
+        
+//        APICaller.shared.getTopRatedList { _ in
+//
+//        }
     }
 }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 

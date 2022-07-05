@@ -11,10 +11,10 @@ class HomeViewController: UIViewController {
 
     let titlesForEachSection: [String] = [
         "Trending Movies",
-        "Popular",
         "Trending TV",
-        "Top Rated",
-        "Upcoming Movies"
+        "Popular",
+        "Upcoming Movies",
+        "Top Rated"
     ]
 
     private let homeFeatureTable: UITableView = {
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeatureTable.tableHeaderView = headerView
         
-        getTrendingMoviesList()
+        fetchData()
     }
 
     private func configureNavigationBar() {
@@ -58,19 +58,23 @@ class HomeViewController: UIViewController {
         homeFeatureTable.frame = view.bounds
     }
 
-    private func getTrendingMoviesList() {
+    private func fetchData() {
 //        APICaller.shared.getTrendingMoviesList { _ in
 //
 //        }
-        APICaller.shared.getTrendingMoviesList { results in
-            switch results {
-            case .success(let movies):
-                print(movies)
-            case .failure(let error):
-                print(error)
-            }
+//        APICaller.shared.getTrendingMoviesList { results in
+//            switch results {
+//            case .success(let movies):
+//                print(movies)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+
+        APICaller.shared.getTrendingTVList { results in
         }
     }
+}
 
     /*
     // MARK: - Navigation
@@ -81,8 +85,6 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -125,7 +127,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             height: header.bounds.height
         )
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+//        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeTheFirstLetter()
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

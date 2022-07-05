@@ -19,6 +19,7 @@
 		94C325D428714A4500EAE0C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325D328714A4500EAE0C5 /* HomeViewController.swift */; };
 		94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC4B95287183C1002D899E /* TopHeaderUIView.swift */; };
 		94D9D4C72873D85600D0D3F4 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9D4C62873D85600D0D3F4 /* APICaller.swift */; };
+		94D9D4C928740FA900D0D3F4 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9D4C828740FA900D0D3F4 /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		94C325D328714A4500EAE0C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94CC4B95287183C1002D899E /* TopHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderUIView.swift; sourceTree = "<group>"; };
 		94D9D4C62873D85600D0D3F4 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		94D9D4C828740FA900D0D3F4 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		9479F9E32871630E004A2696 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				94D9D4C828740FA900D0D3F4 /* Movies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9414CFD228714C670031C990 /* SearchViewController.swift in Sources */,
+				94D9D4C928740FA900D0D3F4 /* Movies.swift in Sources */,
 				94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */,
 				94C325C12871460100EAE0C5 /* MainTabBarViewController.swift in Sources */,
 				94D9D4C72873D85600D0D3F4 /* APICaller.swift in Sources */,

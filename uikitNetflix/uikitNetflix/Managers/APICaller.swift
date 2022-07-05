@@ -12,10 +12,15 @@ struct Constants {
     static let defaultURL = "https://api.themoviedb.org/"
 }
 
+enum APIError: Error {
+    case failedToGetData
+}
+
 class APICaller {
     static let shared = APICaller()
 
-    func getTrendingMovies(completion: @escaping (String) -> Void) {
+//    func getTrendingMoviesList(completion: @escaping (String) -> Void) {
+    func getTrendingMoviesList(completion: @escaping (Result<[Movie], Error>) -> Void) {
 
         // Create the defaul URL itself.
         guard let url = URL(string: "\(Constants.defaultURL)/3/trending/all/day?api_key=\(Constants.API_KEY)") else {return}
@@ -32,7 +37,18 @@ class APICaller {
             }
 
             // Data -> JSON object
-//            let results = JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+            do {
+//                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+//                print(results)
+                let results = try JSONDecoder().decode(ResponsesAboutTheTrendingMovies.self, from: data)
+//                print(results.results[0].original_name)
+                completion(.success(results.results))
+            } catch {
+//                print(error.localizedDescription)
+                completion(.failure(error))
+            }
         }
+
+        task.resume()
     }
 }

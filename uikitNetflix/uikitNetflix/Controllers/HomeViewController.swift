@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
 //        homeFeatureTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 400))
         let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeatureTable.tableHeaderView = headerView
+        
+        getTrendingMoviesList()
     }
 
     private func configureNavigationBar() {
@@ -54,6 +56,20 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeatureTable.frame = view.bounds
+    }
+
+    private func getTrendingMoviesList() {
+//        APICaller.shared.getTrendingMoviesList { _ in
+//
+//        }
+        APICaller.shared.getTrendingMoviesList { results in
+            switch results {
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     /*

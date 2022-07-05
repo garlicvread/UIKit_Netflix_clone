@@ -11,10 +11,10 @@ class HomeViewController: UIViewController {
 
     let titlesForEachSection: [String] = [
         "Trending Movies",
-        "Popular",
         "Trending TV",
-        "Top Rated",
-        "Upcoming Movies"
+        "Popular",
+        "Upcoming Movies",
+        "Top Rated"
     ]
 
     private let homeFeatureTable: UITableView = {
@@ -125,7 +125,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             height: header.bounds.height
         )
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+//        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeTheFirstLetter()
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

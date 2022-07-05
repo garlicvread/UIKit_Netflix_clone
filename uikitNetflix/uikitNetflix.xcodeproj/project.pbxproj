@@ -18,6 +18,7 @@
 		94C325C92871460200EAE0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C325C72871460200EAE0C5 /* LaunchScreen.storyboard */; };
 		94C325D428714A4500EAE0C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C325D328714A4500EAE0C5 /* HomeViewController.swift */; };
 		94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC4B95287183C1002D899E /* TopHeaderUIView.swift */; };
+		94D9D4C72873D85600D0D3F4 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D9D4C62873D85600D0D3F4 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		94C325CA2871460200EAE0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C325D328714A4500EAE0C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94CC4B95287183C1002D899E /* TopHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderUIView.swift; sourceTree = "<group>"; };
+		94D9D4C62873D85600D0D3F4 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		9479F9E528716336004A2696 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				94D9D4C62873D85600D0D3F4 /* APICaller.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				9414CFD228714C670031C990 /* SearchViewController.swift in Sources */,
 				94CC4B96287183C1002D899E /* TopHeaderUIView.swift in Sources */,
 				94C325C12871460100EAE0C5 /* MainTabBarViewController.swift in Sources */,
+				94D9D4C72873D85600D0D3F4 /* APICaller.swift in Sources */,
 				9479F9E728716399004A2696 /* CollectionViewForTableViewCell.swift in Sources */,
 				9414CFD428714CC10031C990 /* DownloadsViewController.swift in Sources */,
 				94C325BD2871460100EAE0C5 /* AppDelegate.swift in Sources */,

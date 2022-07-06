@@ -45,7 +45,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
 //                print(error.localizedDescription)
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
             }
         }
 
@@ -65,7 +65,7 @@ class APICaller {
                 let results = try JSONDecoder().decode(ResponsesAboutTheTrendingTitles.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
 
@@ -84,15 +84,13 @@ class APICaller {
                 let results = try JSONDecoder().decode(ResponsesAboutTheTrendingTitles.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
 
         task.resume()
     }
 
-    // upcoming
-    // https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1
     func getUpcomingMovies(completion: @escaping(Result<[Title], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.defaultURL)/3/movie/upcoming?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
 
@@ -105,7 +103,7 @@ class APICaller {
                 let results = try JSONDecoder().decode(ResponsesAboutTheTrendingTitles.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
 
@@ -124,7 +122,7 @@ class APICaller {
                 let results = try JSONDecoder().decode(ResponsesAboutTheTrendingTitles.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
 

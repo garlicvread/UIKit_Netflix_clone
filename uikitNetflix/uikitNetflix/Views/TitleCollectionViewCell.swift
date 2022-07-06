@@ -37,7 +37,10 @@ class TitleCollectionViewCell: UICollectionViewCell {
     // When dequeue a cell from the collectionView -> update the poster for each cell: public function
 
     public func configure(with model: String) {
-        guard let url = URL(string: model) else {return}
+//        guard let url = URL(string: model) else {return}
+//        posterImageView.sd_setImage(with: url, completed: nil)
+//        print(model)
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {return}
         posterImageView.sd_setImage(with: url, completed: nil)
     }
 }

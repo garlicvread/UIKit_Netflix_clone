@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeatureTable.tableHeaderView = headerView
         
-        fetchData()
+//        fetchData()
     }
 
     private func configureNavigationBar() {
@@ -58,35 +58,35 @@ class HomeViewController: UIViewController {
         homeFeatureTable.frame = view.bounds
     }
 
-    private func fetchData() {
-//        APICaller.shared.getTrendingMoviesList { _ in
+//    private func fetchData() {
+////        APICaller.shared.getTrendingMoviesList { _ in
+////
+////        }
 //
-//        }
-
-//        APICaller.shared.getTrendingMoviesList { results in
-//            switch results {
-//            case .success(let movies):
-//                print(movies)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+////        APICaller.shared.getTrendingMoviesList { results in
+////            switch results {
+////            case .success(let movies):
+////                print(movies)
+////            case .failure(let error):
+////                print(error)
+////            }
+////        }
+////
+////        APICaller.shared.getTrendingTVList { _ in
+////        }
+////
+////        APICaller.shared.getUpcomingMovies { _ in
+////
+////        }
 //
-//        APICaller.shared.getTrendingTVList { _ in
-//        }
+////        APICaller.shared.getPopularList { _ in
+////
+////        }
 //
-//        APICaller.shared.getUpcomingMovies { _ in
-//
-//        }
-
-//        APICaller.shared.getPopularList { _ in
-//
-//        }
-        
-//        APICaller.shared.getTopRatedList { _ in
-//
-//        }
-    }
+////        APICaller.shared.getTopRatedList { _ in
+////
+////        }
+//    }
 }
 
 

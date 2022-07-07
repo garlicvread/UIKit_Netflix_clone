@@ -6,12 +6,13 @@
 //
 
 import UIKit
+// SDWebImage: A 3rd party library to retrieve/cache the poster images
 import SDWebImage
 
 class TitleCollectionViewCell: UICollectionViewCell {
     static let identifier = "TitleCollectionViewCell"
 
-    // imageView to show the posters
+    // imageView to pass the posters images
     // closure(anonuymous function, lambda function) pattern
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,6 +25,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(posterImageView)
     }
 
+    // required init?: to avoid an error -> ??
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -33,14 +35,14 @@ class TitleCollectionViewCell: UICollectionViewCell {
         posterImageView.frame = contentView.bounds
     }
 
-    // 3rd party library to retrieve/cache the poster images
     // When dequeue a cell from the collectionView -> update the poster for each cell: public function
-
     public func configure(with model: String) {
 //        guard let url = URL(string: model) else {return}
 //        posterImageView.sd_setImage(with: url, completed: nil)
 //        print(model)
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {return}
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {
+            return
+        }
         posterImageView.sd_setImage(with: url, completed: nil)
     }
 }

@@ -24,7 +24,8 @@ class CollectionViewForTableViewCell: UITableViewCell {
 
     private var titles: [Title] = [Title]()  // Initialize the array to be an empty array for now.
     
-    private let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {  // 2. update the title array here.
+        // This array is updating in async function. -> 3.
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 144, height: 200)
         layout.scrollDirection = .horizontal
@@ -53,10 +54,10 @@ class CollectionViewForTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
 
-    // configure with new function to feed the title for each section
+    // A new function configure: to feed the title for each section
     public func configure(with titles: [Title]) {
-        self.titles = titles
-        DispatchQueue.main.async { [weak self] in
+        self.titles = titles  // 1. retrieving titles within the HomeViewController.swift -> 2.
+        DispatchQueue.main.async { [weak self] in  // 3. need to reload the data for the collectionView inside the main thread. -> .async
             self?.collectionView.reloadData()
         }
     }

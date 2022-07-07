@@ -47,7 +47,10 @@ class HomeViewController: UIViewController {
         let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeatureTable.tableHeaderView = headerView
         
-//        fetchData()
+/*
+fetchData(): make this call for the function as an annotation
+ because the function was for testing, and is now being annotated.
+ */
     }
 
     private func configureNavigationBar() {
@@ -134,7 +137,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         switch indexPath.section {
-            case Sections.TrendingMovies.rawValue:
+            case Sections.TrendingMovies.rawValue:  // .rawvalue: to initialize the enumerator 'enum Section'
                 APICaller.shared.getTrendingMoviesList { result in
                     switch result {
                         case .success(let titles):
@@ -184,7 +187,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
 
-            default:
+            default:  // The switch sentence must be exhaustive: need a default action.
                 return UITableViewCell()
         }
 

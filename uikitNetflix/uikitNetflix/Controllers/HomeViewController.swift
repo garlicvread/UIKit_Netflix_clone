@@ -51,10 +51,25 @@ class HomeViewController: UIViewController {
     }
 
     private func configureNavigationBar() {
-        var image = UIImage(named: "logo")
-        image = image?.withRenderingMode(.alwaysOriginal)
+        // 1 + 2: to place the app logo in the right place.
+        // 1. Add button as a customView
+        let image = UIImage(named: "logo")?.withRenderingMode(.alwaysOriginal)
+        let logoButton = UIButton()
+        logoButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        logoButton.setImage(image, for: .normal)
+        logoButton.imageView?.contentMode = .scaleAspectFit
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        // 2. Add constraint to the leftBarButtonItem
+        let leftBarButtonItem = UIBarButtonItem(customView: logoButton)
+//        image = image?.withRenderingMode(.alwaysOriginal)
+        let width = leftBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 50)
+            width?.isActive = true
+        let height = leftBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 50)
+            height?.isActive = true
+
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)

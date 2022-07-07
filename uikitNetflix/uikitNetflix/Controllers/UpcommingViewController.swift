@@ -14,7 +14,7 @@ class UpcommingViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
-                       
+      
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +27,11 @@ class UpcommingViewController: UIViewController {
         tableForUpcoming.delegate = self
         tableForUpcoming.dataSource = self
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableForUpcoming.frame = view.bounds
+    }
 
     /*
     // MARK: - Navigation
@@ -45,7 +49,7 @@ extension UpcommingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "test"

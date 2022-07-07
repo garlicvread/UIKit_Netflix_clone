@@ -1,5 +1,5 @@
 //
-//  UpcommingViewController.swift
+//  UpcomingViewController.swift
 //  uikitNetflix
 //
 //  Created by 김제필 on 7/3/22.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class UpcommingViewController: UIViewController {
+class UpcomingViewController: UIViewController {
 
     private var titles: [Title] = [Title]()
     private let tableForUpcoming: UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
       
@@ -63,14 +63,21 @@ class UpcommingViewController: UIViewController {
 
 }
 
-extension UpcommingViewController: UITableViewDelegate, UITableViewDataSource {
+extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "Unknown"
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        cell.textLabel?.text = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "Unknown"
+//        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
+            return UITableViewCell()
+        }
+
+        let title = titles[indexPath.row]
+        cell.configure(with: TitleViewModel(titleName: (title.original_title ?? title.original_name) ?? "Unknown title", posterURL: title.poster_path ?? ""))
         return cell
     }
 }

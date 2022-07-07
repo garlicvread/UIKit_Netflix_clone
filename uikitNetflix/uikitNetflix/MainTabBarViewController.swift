@@ -15,7 +15,7 @@ class MainTabBarViewController: UITabBarController {
         view.backgroundColor = .systemYellow
 
         let viewController1 = UINavigationController(rootViewController: HomeViewController())
-        let viewController2 = UINavigationController(rootViewController: UpcommingViewController())
+        let viewController2 = UINavigationController(rootViewController: UpcomingViewController())
         let viewController3 = UINavigationController(rootViewController: SearchViewController())
         let viewController4 = UINavigationController(rootViewController: DownloadsViewController())
 

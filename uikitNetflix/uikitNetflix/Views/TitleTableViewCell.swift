@@ -24,6 +24,7 @@ class TitleTableViewCell: UITableViewCell {
 
     private let playTitleButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -67,8 +67,8 @@ fetchData(): make this call for the function as an annotation
 //        image = image?.withRenderingMode(.alwaysOriginal)
         let width = leftBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 50)
             width?.isActive = true
-//        let height = leftBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 50)
-//            height?.isActive = true
+        let height = leftBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 50)
+            height?.isActive = false
 
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftBarButtonItem
@@ -115,7 +115,6 @@ fetchData(): make this call for the function as an annotation
 ////        }
 //    }
 }
-
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 

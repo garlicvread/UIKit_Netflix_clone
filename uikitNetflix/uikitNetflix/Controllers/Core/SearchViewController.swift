@@ -9,11 +9,18 @@ import UIKit
 
 class SearchViewController: UIViewController {
     private var titles: [Title] = [Title]()
-    
+
     private let tableForDiscoveredTitles: UITableView = {
         let table = UITableView()
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
+    }()
+
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchedTitlesViewController())
+        controller.searchBar.placeholder = "Searched movie or TV show"
+        controller.searchBar.searchBarStyle = .minimal  // Make the search bar has no backbround and transparent
+        return controller
     }()
 
     override func viewDidLoad() {
@@ -30,6 +37,8 @@ class SearchViewController: UIViewController {
         // Implement the functions to pass the data and the number of rows
         tableForDiscoveredTitles.delegate = self
         tableForDiscoveredTitles.dataSource = self
+
+        navigationItem.searchController = searchController  // pass the searchController here
 
         fetchDiscoveredMovies()
     }
@@ -77,10 +86,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
-       
+
         let title = titles[indexPath.row]
         let model = TitleViewModel(titleName: title.original_name ?? title.original_title ?? "Unknown title", posterURL: title.poster_path ?? "")
-        
+
         cell.configure(with: model)
         return cell;
     }

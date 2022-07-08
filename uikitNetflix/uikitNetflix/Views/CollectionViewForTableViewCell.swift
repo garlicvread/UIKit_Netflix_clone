@@ -23,7 +23,7 @@ class CollectionViewForTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewForTableViewCell"
 
     private var titles: [Title] = [Title]()  // Initialize the array to be an empty array for now.
-    
+
     private let collectionView: UICollectionView = {  // 2. update the title array here.
         // This array is updating in async function. -> 3.
         let layout = UICollectionViewFlowLayout()

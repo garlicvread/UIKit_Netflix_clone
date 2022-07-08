@@ -22,10 +22,13 @@ class TitleTableViewCell: UITableViewCell {
 
     static let identifier = "TitleTableViewCell"
 
-    private let playTitleButton: UIButton = {
+    private let playButtonForTitles: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+//        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        button.setImage(image, for: .normal)  // image above is passed here
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
         return button
     }()
 
@@ -39,6 +42,7 @@ class TitleTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true  // Prevent the poster images overflow the container.
         return imageView
     }()
 
@@ -46,7 +50,7 @@ class TitleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titlePosterUIImageView)
         contentView.addSubview(titleLables)
-        contentView.addSubview(playTitleButton)
+        contentView.addSubview(playButtonForTitles)
 
         applyConstraints()
     }
@@ -54,8 +58,8 @@ class TitleTableViewCell: UITableViewCell {
     private func applyConstraints() {
         let titlePosterUIImageViewContraints = [
             titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         
@@ -64,8 +68,14 @@ class TitleTableViewCell: UITableViewCell {
             titleLables.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ]
 
+        let playButtonForTitlesConstraints = [
+            playButtonForTitles.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            playButtonForTitles.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ]
+
         NSLayoutConstraint.activate(titlePosterUIImageViewContraints)
         NSLayoutConstraint.activate(titleLableConstraints)
+        NSLayoutConstraint.activate(playButtonForTitlesConstraints)
     }
 
     public func configure(with model: TitleViewModel) {

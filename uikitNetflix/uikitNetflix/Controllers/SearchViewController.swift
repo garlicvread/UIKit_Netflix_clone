@@ -9,12 +9,28 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+//    private var titles: [Title] = [Title]()
+    private let tableForDiscoveredTitles: UITableView = {
+        let table = UITableView()
+        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        return table
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
 
         view.backgroundColor = .systemBackground
+
+        view.addSubview(tableForDiscoveredTitles)
+
+        // Set a delegate pattern + data source -> controller for the view
+        // Implement the functions to pass the data and the number of rows
+        tableForDiscoveredTitles.delegate = self
+        tableForDiscoveredTitles.dataSource = self
     }
-    
 
     /*
     // MARK: - Navigation
@@ -26,4 +42,24 @@ class SearchViewController: UIViewController {
     }
     */
 
+
+    // Layout for the tableForSearchTitles
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableForDiscoveredTitles.frame = view.bounds
+    }
+}
+
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10;
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
+            return UITableViewCell()
+        }
+        return cell;
+    }
 }

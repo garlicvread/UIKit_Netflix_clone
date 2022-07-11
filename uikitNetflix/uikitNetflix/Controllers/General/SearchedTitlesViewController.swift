@@ -7,7 +7,21 @@
 
 import UIKit
 
-class SearchedTitlesViewController: UITableViewController {
+class SearchedTitlesViewController: UIViewController {
+
+    private var titles: [Title] = [Title]()
+
+    // MARK: Initialize a new collectionView
+    private let searchedResultsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 5, height: UIScreen.main.bounds.width / 4 - 5)
+        layout.minimumInteritemSpacing = 0
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +32,16 @@ class SearchedTitlesViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemBackground
+        view.addSubview(searchedResultsCollectionView)
+
+        searchedResultsCollectionView.delegate = self
+        searchedResultsCollectionView.dataSource = self
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        searchedResultsCollectionView.frame = view.bounds
     }
 
 //    // MARK: - Table view data source
@@ -88,4 +111,19 @@ class SearchedTitlesViewController: UITableViewController {
 //    }
 //    */
 
+}
+
+extension SearchedTitlesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.backgroundColor = .blue
+        return cell
+    }
 }

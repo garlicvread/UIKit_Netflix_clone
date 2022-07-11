@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
 
     private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchedTitlesViewController())
-        controller.searchBar.placeholder = "Searched movie or TV show"
+        controller.searchBar.placeholder = "Search a movie or a TV show"
         controller.searchBar.searchBarStyle = .minimal  // Make the search bar has no backbround and transparent
         return controller
     }()
@@ -39,6 +39,8 @@ class SearchViewController: UIViewController {
         tableForDiscoveredTitles.dataSource = self
 
         navigationItem.searchController = searchController  // pass the searchController here
+
+        navigationController?.navigationBar.tintColor = .white  // Change the color of the word "Cancel" to white.
 
         fetchDiscoveredMovies()
     }

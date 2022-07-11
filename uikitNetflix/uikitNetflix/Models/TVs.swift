@@ -1,5 +1,5 @@
 //
-//  Movies.swift
+//  TVs.swift
 //  uikitNetflix
 //
 //  Created by 김제필 on 7/5/22.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ResponsesAboutTheTrendingTitles: Codable {
-    let results: [Title]
+struct ResponsesAboutTheTrendingTVs: Codable {
+    let results: [TV]
 }
 
-struct Title: Codable {
+struct TV: Codable {
     let id: Int
     let media_type: String?
     let original_name: String?
@@ -22,3 +22,4 @@ struct Title: Codable {
     let vote_average: Double?
     let release_date: String?
 }
+

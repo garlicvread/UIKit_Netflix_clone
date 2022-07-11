@@ -14,7 +14,7 @@ class SearchedTitlesViewController: UIViewController {
     // MARK: Initialize a new collectionView
     private let searchedResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 5, height: UIScreen.main.bounds.width / 4 - 5)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 5, height: UIScreen.main.bounds.height / 5 - 5)
         layout.minimumInteritemSpacing = 0
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -43,6 +43,8 @@ class SearchedTitlesViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchedResultsCollectionView.frame = view.bounds
     }
+
+
 
 //    // MARK: - Table view data source
 //
@@ -101,6 +103,8 @@ class SearchedTitlesViewController: UIViewController {
 //    }
 //    */
 //
+
+
 //    /*
 //    // MARK: - Navigation
 //

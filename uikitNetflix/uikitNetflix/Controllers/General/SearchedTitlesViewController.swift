@@ -8,11 +8,10 @@
 import UIKit
 
 class SearchedTitlesViewController: UIViewController {
-
-    private var titles: [Title] = [Title]()
+    public var titles: [Title] = [Title]()
 
     // MARK: Initialize a new collectionView
-    private let searchedResultsCollectionView: UICollectionView = {
+    public let searchedResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 5, height: UIScreen.main.bounds.height / 5 - 5)
         layout.minimumInteritemSpacing = 0
@@ -43,8 +42,6 @@ class SearchedTitlesViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchedResultsCollectionView.frame = view.bounds
     }
-
-
 
 //    // MARK: - Table view data source
 //
@@ -104,7 +101,6 @@ class SearchedTitlesViewController: UIViewController {
 //    */
 //
 
-
 //    /*
 //    // MARK: - Navigation
 //
@@ -119,7 +115,7 @@ class SearchedTitlesViewController: UIViewController {
 
 extension SearchedTitlesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -127,7 +123,9 @@ extension SearchedTitlesViewController: UICollectionViewDelegate, UICollectionVi
             return UICollectionViewCell()
         }
 
-        cell.backgroundColor = .blue
+//        cell.backgroundColor = .blue
+        let title = titles[indexPath.row]
+        cell.configure(with: title.poster_path ?? "")
         return cell
     }
 }

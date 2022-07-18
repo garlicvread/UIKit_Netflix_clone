@@ -43,6 +43,8 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white  // Change the color of the word "Cancel" to white.
 
         fetchDiscoveredMovies()
+        
+        searchController.searchResultsUpdater = self
     }
 
     private func fetchDiscoveredMovies() {
@@ -98,5 +100,32 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+}
+
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchedTitlesViewController else {
+                  return
+              }
+
+        APICaller.shared.search(with: query) { results in
+            DispatchQueue.main.async {
+                switch results {
+                    case.success(let titles):
+                        resultsController.titles = titles
+                        resultsController.searchedResultsCollectionView.reloadData()
+
+                    case .failure(let error):
+                        print(error .localizedDescription)
+                }
+            }
+        }
     }
 }

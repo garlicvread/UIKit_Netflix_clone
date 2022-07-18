@@ -46,7 +46,12 @@ class HomeViewController: UIViewController {
 //        homeFeatureTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 400))
         let headerView = TopHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeatureTable.tableHeaderView = headerView
-        
+
+        // MARK: hard-coded because there is no comletion function yet.
+//        APICaller.shared.getMovie(with: "harry potter")
+        APICaller.shared.getMovie(with: "harry potter") { result in
+            // 
+        }
 /*
 fetchData(): make this call for the function as an annotation
  because the function was for testing, and is now being annotated.

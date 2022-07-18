@@ -115,15 +115,15 @@ extension SearchViewController: UISearchResultsUpdating {
                   return
               }
 
-        APICaller.shared.search(with: query) { [weak self] results in
+        APICaller.shared.search(with: query) { results in
             DispatchQueue.main.async {
                 switch results {
-                case.success(let titles):
-                    resultsController.titles = titles
-                    resultsController.searchedResultsCollectionView.reloadData()
-                    
-                case .failure(let error):
-                    print(error .localizedDescription)
+                    case.success(let titles):
+                        resultsController.titles = titles
+                        resultsController.searchedResultsCollectionView.reloadData()
+
+                    case .failure(let error):
+                        print(error .localizedDescription)
                 }
             }
         }
